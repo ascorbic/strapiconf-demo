@@ -1,0 +1,95 @@
+{
+	"Get collection": {
+		"scope": "javascript,typescript",
+		"prefix": "gcol",
+		"body": [
+			"const ${1:collection} = await getCollection(\"$1\"${2:,});",
+			"$3"
+		],
+		"description": "getCollection call"
+	},
+	"Get entry": {
+		"scope": "javascript,typescript",
+		"prefix": "gent",
+		"body": [
+			"const ${1:entry} = await getEntry(\"$1\", $2);",
+			"$3"
+		],
+		"description": "getEntry call"
+	},
+	"Define collection": {
+		"scope": "javascript,typescript",
+		"prefix": "dcol",
+		"body": [
+			"const ${1:collection} = defineCollection({",
+			"  loader: $0",
+			"});"
+		],
+		"description": "defineCollection declaration"
+	},
+	"Glob loader": {
+		"scope": "javascript,typescript",
+		"prefix": "globl",
+		"body": "glob({ base: \"${1:./src/content/}\", pattern: \"**/*.{${2:md}}\"})",
+		"description": "glob loader declaration"
+	},
+	"Content config imports": {
+		"scope": "javascript,typescript",
+		"prefix": "cci",
+		"body": [
+			"import { defineCollection${1:, z} } from 'astro:content';",
+			"${2:import { glob \\} from 'astro/loaders';}$0"
+		],
+		"description": "import declarations for content.config.ts"
+	},
+	"Content config schema": {
+		"scope": "javascript,typescript",
+		"prefix": [
+			"ccs",
+			"schema"
+		],
+		"body": [
+			"schema: z.object({",
+			"  ${1:title}: z.${2|string,number,boolean,date,array,object|}($3),$0",
+			"})"
+		],
+		"description": "schema declaration for content.config.ts"
+	},
+	"Content collection export": {
+		"scope": "javascript,typescript",
+		"prefix": [
+			"ccx",
+			"cce"
+		],
+		"body": [
+			"export const collections = { ${1:collection}${2:,} };",
+		],
+		"description": "export collections declaration for content.config.ts"
+	},
+	"Strapi collection": {
+		"scope": "javascript,typescript",
+		"prefix": "strapiLoader",
+		"description": "Strapi loader declaration",
+		"body": [
+			"strapiLoader({",
+			"  contentType: \"${1:page}\",",
+			"  params: {",
+			"    populate: {",
+			"      blocks: populateBlocks",
+			"    }",
+			"  },",
+			"})"
+		]
+	},
+	"Moon phase": {
+		"scope": "javascript,typescript",
+		"prefix": "moon",
+		"body": [
+			"import { Moon } from \"lunarphase-js\";",
+			"",
+			"const phase = Moon.lunarPhaseEmoji();",
+			"$0"
+		],
+		"description": "Moon phase declaration"
+	},
+}
