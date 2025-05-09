@@ -1,0 +1,20 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import Layout from "../layouts/StrapiPage.astro";
+import BlockRenderer from "../components/blocks/BlockRenderer.astro";
+
+export const getStaticPaths = (async () => {
+  const pages = [];
+  return pages.map((page) => ({
+    params: { slug: page.data.slug },
+    props: { page: page.data },
+  }));
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+---
+
+<Layout title={page.title} description={page.description}>
+  <BlockRenderer blocks={page.blocks} />
+</Layout>
