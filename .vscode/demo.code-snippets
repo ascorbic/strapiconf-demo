@@ -27,7 +27,7 @@
   "Glob loader": {
     "scope": "javascript,typescript",
     "prefix": "globl",
-    "body": "glob({ base: \"${1:./src/content/}\", pattern: \"**/*.{${2:md}}\"})",
+    "body": "glob({ base: \"${1:./src/content/}\", pattern: \"**/*.${2:md}\"})",
     "description": "glob loader declaration"
   },
   "Content config imports": {
